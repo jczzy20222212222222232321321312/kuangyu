@@ -800,7 +800,13 @@
       const nonce = await nr.json();
       if (!nr.ok) throw new Error(nonce.error || 'nonce failed');
       const msgHex = '0x' + Array.from(new TextEncoder().encode(nonce.message)).map((b) => b.toString(16).padStart(2, '0')).join('');
-      const signature = await provider.request({ method: 'personal_sign', params: [msgHex, address] });
+      let signature;
+      try { signature = await provider.request({ method: 'personal_sign', params: [msgHex, address] }); }
+      catch (signErr) {
+        if (/reject|denied|cancel/i.test(String(signErr && (signErr.message || signErr)))) throw signErr;
+        // Some wallets reject hex-encoded personal_sign input; retry the UTF-8 form.
+        signature = await provider.request({ method: 'personal_sign', params: [nonce.message, address] });
+      }
       const s = G().state;
       if (!s || s.phase !== 'playing' || !s.clan) throw new Error('enlist first');
       const manifest = { seed: s.worldSeed, zones: s.zones.map((z) => ({ id: z.id, code: z.code, kind: z.kind, home: z.home || z.sector || z.owner, weight: z.weight || 1, pos: z.vCenter || null, nb: z.nb || [] })) };
