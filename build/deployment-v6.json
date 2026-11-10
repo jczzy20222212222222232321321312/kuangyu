@@ -1,0 +1,27 @@
+{
+  "chainId": 97,
+  "deployedAt": "2026-11-09T06:12:54.125Z",
+  "signer": "0x88662C67191c97f13EbeF63AD4262dDcE1c350d6",
+  "ore": "0x9765893116392d65c0455dd47944f86e6E01fd0D",
+  "vault": "0xA25dFBC5e210301B79605dFe6FfA9bd1690d0944",
+  "nft": "0xe097C843634536F60e4a7Dc8be7072F68101B8f8",
+  "burner": "0x5d66191117AdAA3402FA5cAC30A79bd407ff1b8e",
+  "market": "0x7715A1f308ae9Cc04Fee0241708a4ef9094F2A89",
+  "minePool": "0x7c3F6beEFca6E46BdB6c0b6CD8177E6Fe4af81cF",
+  "txs": {
+    "ore": "0x853711afbc5f6faeb0f4458e8227c80627b46bc5889b036da926402236f60ce2",
+    "vault": "0xed1dd33b4bdd1e1a4fbd071e61a51544021bfc5f5b936eed2833e8407d33b9ab",
+    "nft": "0x04e6fcb9ccd5f69ecf8645bb468672002ec5b6d72956f5b9eb611567e17dad71",
+    "burner": "0x67ec4b8fa05ef751d4fa25c662a1d0b4d9557b5d5b05dbc2f27bf7c199a70f52",
+    "market": "0x94cb41fb8540c428dc8cf1269bd7785ec1f9a575b2aa0f4357ecf521a44c8993",
+    "pool": "0x0e7dc8ccc8eff69f7457e3b507a74fcc11c10cd7149288ca2e3a0808674f712b"
+  },
+  "distribution": {
+    "totalSupply": "100000000",
+    "minePool": "80000000",
+    "vault": "10000000",
+    "deployer": "9990000",
+    "user": "10000"
+  },
+  "user": "0x145dcA23FB271BD5c2c31808BFa91fBe596a8ac9"
+}

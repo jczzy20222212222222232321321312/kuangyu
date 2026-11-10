@@ -1,0 +1,14 @@
+'use strict';
+const fs=require('fs'),path=require('path'),{ethers}=require('ethers');
+const root=path.join(__dirname,'..');
+const key=JSON.parse(fs.readFileSync('/Users/panda2/Documents/deepseek-harness/default-workspace/.ore-secrets/signer.json','utf8')).privateKey;
+const ORE='0xa7a339C8E75B19669af2C9D3596C8B4f721c424d';
+const art=n=>JSON.parse(fs.readFileSync(path.join(root,'build',n+'.json'),'utf8'));
+(async()=>{const p=new ethers.JsonRpcProvider('https://bsc-testnet-rpc.publicnode.com',97,{staticNetwork:true});const w=new ethers.Wallet(key,p);console.log('signer',w.address,ethers.formatEther(await p.getBalance(w.address)));
+ const dep=async(name,args)=>{const a=art(name);const f=new ethers.ContractFactory(a.abi,a.bytecode,w);const c=await f.deploy(...args);const tx=c.deploymentTransaction();await c.waitForDeployment();const addr=await c.getAddress();console.log(name,addr,tx.hash);return {c,addr,tx:tx.hash};};
+ const nft=await dep('OreSoldierV4',['http://192.168.10.108:8091/nft/']);
+ const burner=await dep('OreBurner',[nft.addr]);
+ const market=await dep('OreMarket',[ORE,nft.addr]);
+ const out={chainId:97,deployedAt:new Date().toISOString(),signer:w.address,ore:ORE,nft:nft.addr,burner:burner.addr,market:market.addr,tx:{nft:nft.tx,burner:burner.tx,market:market.tx}};
+ fs.writeFileSync(path.join(root,'build','deployment-v4.json'),JSON.stringify(out,null,2));console.log(JSON.stringify(out,null,2));
+})().catch(e=>{console.error(e.shortMessage||e.message||e);process.exit(1)});

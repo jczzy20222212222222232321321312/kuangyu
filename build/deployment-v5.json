@@ -1,0 +1,13 @@
+{
+  "chainId": 97,
+  "signer": "0x88662C67191c97f13EbeF63AD4262dDcE1c350d6",
+  "ore": "0xa7a339C8E75B19669af2C9D3596C8B4f721c424d",
+  "nft": "0xB55Cb9Db401324271c74d9b7169a81F809106752",
+  "burner": "0x0DD2692e3D474C812Fa4Cc7ebA0c372F602C0fa0",
+  "market": "0xb7BE3dF9caeB9Bb637E8d8a66a8a5287D924aa85",
+  "tx": {
+    "nft": "0x66d166f06480d714b626f2fc3bf649767fa39fa0d2f0f1d48aa967821eebe54c",
+    "burner": "0xeac3582c24b9bb3d73820068b4902af5eaa2066328364595f55899c419eda963",
+    "market": "0xe4acbbc786daf76a6aa6cd0072015db2007f73634f21ceccc7cf2bfbace290f9"
+  }
+}

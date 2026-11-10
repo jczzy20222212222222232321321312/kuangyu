@@ -1,0 +1,36 @@
+{
+  "network": "BSC Testnet",
+  "chainId": 97,
+  "contract": "0x48AE6bF05D2E71eB78FE6532Fc36d3C179263fD4",
+  "address": "0x48AE6bF05D2E71eB78FE6532Fc36d3C179263fD4",
+  "deployer": "0x754620D96e48B93df1A6aFF57FFA98d732EB667a",
+  "txHash": "0xf37b2616ea3c9bc039310c947db8e24d8a9443331ac4d9ac52b79a2b7347f714",
+  "blockNumber": 140616227,
+  "gasUsed": "1306429",
+  "explorer": "https://testnet.bscscan.com/address/0x48AE6bF05D2E71eB78FE6532Fc36d3C179263fD4",
+  "mintTest": {
+    "txHash": "0xc6f6d3a94c1e586bc638bf5276123b6c3a9998b5590fd93ea8cdde6215773968",
+    "wallet": "0x754620D96e48B93df1A6aFF57FFA98d732EB667a",
+    "minted": 10,
+    "tokenIds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "totalSupplyAfter": 10,
+    "remaining": 9990,
+    "eleventhMintReverted": true,
+    "transferTxHash": "0x04af986c1f3fdce39aadbbe15e151a10cf24b0164ee08278e5e320ed76624b07",
+    "transferRecipient": "0x1111111111111111111111111111111111111111",
+    "recipientBalance": "1",
+    "lifetimeMintAfterTransferReverted": true,
+    "deployerTokenBalanceAfterTransfer": "9"
+  }
+}

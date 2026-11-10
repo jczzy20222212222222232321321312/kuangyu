@@ -1,0 +1,25 @@
+{
+  "chainId": 97,
+  "deployedAt": "2026-11-08T14:10:44.897Z",
+  "nft": "0x803451202D1338474F95CE556aA21174c0A1273B",
+  "burner": "0x683DbA3A29B512CD4e0cB5D23FBCdaE1c15D4298",
+  "market": "0x0CfdF15DE71123c95587945bb8E21eac147D7f99",
+  "ore": "0xD222B7BC58AF20a5EE2bF877A9008091Da3D00E5",
+  "migrated": [
+    "1",
+    "2",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11"
+  ],
+  "tx": {
+    "nft": "0xbb4104bfe50ef1e92e6dea7f5247cc6c13f5d8db57a3632660d93bf06e81c5bd",
+    "burner": "0xbcfdd2ec2207c99bc24dd2b560bb5f196d3f338bba4eddcb60b26ee1be91e3fc",
+    "market": "0xc4ef242a76743017c7092ae64ee845f8ab5c1586d2cb42c6860cd847a4f92790"
+  }
+}

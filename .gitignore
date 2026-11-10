@@ -1,0 +1,19 @@
+.env
+node_modules/
+ENV
+ls -lh contracts/OreSoldier.sol build/OreSoldier.json scripts package.json .env.example
+
+server/world-state.json
+node_modules/
+server/world.db
+server/world.db-wal
+server/world.db-shm
+server/pgdata-real/
+server/pgdata/
+
+# local TLS/dev credentials
+server/certs/
+*.pem
+.ore-secrets/
+.env
+dist/

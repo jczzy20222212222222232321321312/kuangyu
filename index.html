@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>矿域 ORE.ZONE — 三族争矿，链上为兵</title>
+<meta name="description" content="三势力矿战经济模拟：BSC 测试网 NFT 士兵、婚育、士兵市场、可旋转球体产矿、烧兵提取与手续费流动性。">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,4 92,32 76,92 24,94 6,38' fill='%23FEC23E'/%3E%3Cpolygon points='50,22 74,40 64,76 36,78 26,44' fill='%23000'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/game.css?v=20261106cw">
+<style id="dead-avatar-hotfix">
+  .dead-card .av { width: 24px !important; height: 24px !important; flex: none !important; overflow: hidden !important; border-radius: 50% !important; background: #0c0c0c !important; opacity: .72; filter: grayscale(.45); }
+  .dead-card .av svg { width: 100% !important; height: 100% !important; max-width: 24px !important; max-height: 24px !important; display: block !important; }
+</style>
+</head>
+<body>
+<canvas id="globe3d" aria-hidden="true"></canvas>
+<canvas id="map" aria-label="矿域战争地图"></canvas>
+
+<header class="top" id="top">
+  <a class="brand" href="#" aria-label="矿域 ORE.ZONE" id="brand">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 100 100"><polygon points="50,4 92,32 76,92 24,94 6,38" fill="currentColor"/><polygon points="50,22 74,40 64,76 36,78 26,44" fill="#000"/></svg>
+    </span>
+    <span class="brand-t"><b>矿域</b><em>ORE.ZONE</em><span class="brand-pool" id="mPool">矿池 --</span><span class="brand-army" id="mArmy">总兵 -- · 战力 --</span></span>
+  </a>
+
+  <div class="clock" id="clock" title="全局矿池剩余 · 每日产出剩余矿池的 1%">
+    <span class="ck ck-army"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 4v5c0 4.4-3 7.5-7 9-4-1.5-7-4.6-7-9V7z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="ck-l">总兵</span><b id="ckArmy">0</b></span>
+    <span class="ck ck-power"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20L20 4M7 4l13 13M4 17l3 3" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg><span class="ck-l">总战力</span><b id="ckPower">0</b></span>
+    <span class="ck ck-cap"><span class="ck-l">矿池剩余</span><b id="ckPool">80,000,000</b></span>
+  </div>
+
+  <div class="top-r">
+    <button class="chip bal-chip eth" type="button" id="chipEth" title="当前区块链网络主币余额（ETH / BNB）">
+      <i class="eth-ico">Ξ</i><b id="topEth">0.0000</b>
+    </button>
+    <button class="chip wallet-chip" type="button" id="chipWallet" title="连接 BSC 测试网钱包">
+      <i class="wallet-ico">◈</i><b id="walletLabel">连接钱包</b><span class="wallet-label">BSC</span>
+    </button>
+    <div class="lang-wrap" id="langWrap">
+      <button class="icon-btn lang-btn" type="button" id="btnLang" aria-label="Language" title="Language">EN</button>
+      <div class="lang-menu" id="langMenu" data-i18n-skip hidden>
+        <button type="button" data-lang="en">English</button>
+        <button type="button" data-lang="zh-Hant">中文（繁體）</button>
+        <button type="button" data-lang="fr">Français</button>
+        <button type="button" data-lang="ru">Русский</button>
+        <button type="button" data-lang="ja">日本語</button>
+        <button type="button" data-lang="ko">한국어</button>
+        <button type="button" data-lang="vi">Tiếng Việt</button>
+        <button type="button" data-lang="ar">العربية</button>
+      </div>
+    </div>
+    <button class="icon-btn" type="button" id="btnFeed" aria-label="战报">
+      <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+    </button>
+    <button class="icon-btn" type="button" id="btnHelp" aria-label="作战手册">?</button>
+    <button class="icon-btn" type="button" id="btnSettings" aria-label="设置">
+      <svg viewBox="0 0 24 24"><path d="M12 15.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Z" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M19.4 13.5a7.6 7.6 0 0 0 0-3l2-1.5-2-3.4-2.4 1a7.6 7.6 0 0 0-2.6-1.5L14 2.6h-4l-.4 2.5A7.6 7.6 0 0 0 7 6.6l-2.4-1-2 3.4 2 1.5a7.6 7.6 0 0 0 0 3l-2 1.5 2 3.4 2.4-1a7.6 7.6 0 0 0 2.6 1.5l.4 2.5h4l.4-2.5a7.6 7.6 0 0 0 2.6-1.5l2.4 1 2-3.4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="icon-btn" type="button" id="btnSound" aria-label="音效开关" title="音效（M）">
+      <svg viewBox="0 0 24 24"><path d="M4 9.5h3.2L12 5.6v12.8L7.2 14.5H4z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M15.6 8.6a4.6 4.6 0 0 1 0 6.8M18.2 6a8 8 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============ LEFT COMMAND PANEL ============ -->
+<aside class="panel" id="panel" aria-label="指挥面板">
+  <button class="grab" id="grab" type="button" aria-label="展开或收起面板"><i></i></button>
+
+  <div class="panel-ore">
+    <button class="chip bal-chip" type="button" id="chipOre" title="士兵钱包 ORE / 链上钱包 ORE">
+      <i class="zn"></i><b id="topOre">0</b><span>ORE</span>
+    </button>
+  </div>
+
+  <section class="hero" id="pHero">
+    <span class="kicker"><i></i>GENESIS · 链上士兵</span>
+    <h1>三族争矿。<br>链上为兵。<br><em>烧兵取矿。</em></h1>
+    <p class="lead">地块每分钟产出 <b>ORE</b>。军团不白送：连接 BSC Testnet 钱包，持有几个士兵 NFT，游戏里才有几个士兵。士兵既是战斗力，也是提取权。</p>
+    <div class="clan-list" id="clanPick" role="list"></div>
+    <button class="btn ghost wide" type="button" id="heroRules">作战手册 · 经济怎么转</button>
+    <button class="btn ghost wide mp-entry" type="button" id="mpEnter">多人同服</button>
+    <button class="btn wide" type="button" data-open="chain">铸造士兵 · BSC 测试网（已铸造 <span data-mint-supply>—</span>/10,000）</button>
+    <p class="fine">BSC Testnet 钱包读取军团 · 进度由多人服务器保存</p>
+  </section>
+
+  <section class="mine" id="pMe" hidden>
+    <div class="me-h">
+      <span class="me-sig" id="meSig"></span>
+      <div class="me-t"><b id="meName">—</b><span id="meClan">—</span></div>
+      <span class="cpill" id="mePill">—</span>
+    </div>
+
+    <div class="chest-card">
+      <div class="chest-h"><span>全局矿池剩余</span><em id="chestCap">总量 100,000,000</em></div>
+      <div class="chest-v"><b id="chestVal">0</b><span>ORE</span><em id="chestRate">+0 / 分</em></div>
+      <div class="bar chest-bar"><i id="chestBar"></i></div>
+      <div class="chest-f">
+        <span id="chestNote">每日产出剩余矿池的 1%</span>
+        <button class="btn sm" type="button" id="btnExtract">烧兵提取</button>
+      </div>
+    </div>
+
+    <div class="wallet-row">
+      <div><span>个人钱包</span><b id="walletOre">0</b></div>
+      <div><span>钱包 ETH</span><b id="walletEth">—</b></div>
+      <div><span>LP 份额</span><b id="walletLp">0</b></div>
+    </div>
+    <div class="vault-chain" id="vaultChain"></div>
+
+    <div class="army-sum" id="armySum"></div>
+    <div class="force-line" id="forceLine">
+      <span>总兵力 <b id="forceTotal">0</b></span>
+      <span>在役 <b id="forceAlive">0</b></span>
+      <span>阵亡 <b id="forceDead">0</b></span>
+      <span>复活 <b id="forceNext">—</b></span>
+    </div>
+
+    <div class="me-acts">
+      <button class="btn" type="button" data-open="army">军团 <span class="cnt" id="armyN">0</span></button>
+      <button class="btn ghost" type="button" data-open="breed">婚育</button>
+      <button class="btn ghost" type="button" data-open="market">市场</button>
+      <button class="btn ghost" type="button" data-open="economy">经济</button>
+    </div>
+
+    <button class="btn wide" type="button" data-open="chain">铸造士兵 · BSC 测试网（已铸造 <span data-mint-supply>—</span>/10,000）</button>
+    <div class="faction-line" id="factionLine"></div>
+    <p class="hint" id="meHint">点击地图上的地块，查看矿脉与战况。</p>
+  </section>
+
+  <section class="zone" id="pZone" hidden>
+    <div class="z-h">
+      <button class="link back" type="button" id="zBack" aria-label="返回">←</button>
+      <div class="z-t"><b id="zName">—</b><span id="zSub">—</span></div>
+      <span class="cpill" id="zOwner">—</span>
+    </div>
+
+    <div class="z-stats">
+      <div><span>产出</span><b id="zYield">0</b><em>ORE / 分</em></div>
+      <div><span>防御</span><b id="zDef">0</b><em id="zDefS">民兵</em></div>
+      <div><span>驻军</span><b id="zGuards">0</b><em id="zMine">—</em></div>
+    </div>
+
+    <div class="z-neighbors" id="zNeighbors"></div>
+
+    <div class="order" id="zOrder">
+      <div class="o-h"><b id="oTitle">突袭</b><span id="oSub"></span></div>
+      <div class="o-pick">
+        <button class="step" type="button" id="oMinus" aria-label="减少">−</button>
+        <input type="range" id="oRange" min="1" max="1" value="1" aria-label="派遣士兵数量">
+        <button class="step" type="button" id="oPlus" aria-label="增加">+</button>
+        <b class="o-n" id="oN">1</b>
+      </div>
+      <div class="o-q">
+        <button type="button" data-q="0.25">¼</button><button type="button" data-q="0.5">½</button><button type="button" data-q="1">全部</button>
+        <button type="button" id="oNeed">够赢即可</button>
+      </div>
+      <div class="o-est" id="oEst"></div>
+      <button class="btn big" type="button" id="oGo"><span id="oGoT">发动突袭</span></button>
+      <p class="o-msg" id="oMsg" role="status"></p>
+    </div>
+
+    <div class="z-acts" id="zActs"></div>
+    <p class="hint" id="zHint"></p>
+  </section>
+</aside>
+
+<!-- ============ FACTION CONTROL BAR ============ -->
+<div class="war" id="war" aria-label="势力控制">
+  <div class="war-t"><span class="war-l"><span class="s-hide">SEASON 1</span><em id="warHolder">中立之地</em></span><b id="warTotal">—</b></div>
+  <div class="war-bar" id="warBar"></div>
+  <div class="war-k" id="warKey"></div>
+</div>
+
+<!-- ============ WAR FEED ============ -->
+<aside class="feed" id="feed" aria-label="战报">
+  <div class="feed-h">
+    <div class="feed-t"><b>战报</b><span class="live"><i></i>LIVE</span></div>
+    <button class="link" type="button" id="feedClose" aria-label="收起战报">收起</button>
+  </div>
+  <ol id="feedList" class="feed-list"></ol>
+  <div class="feed-ranks">
+    <div class="fr-h"><b>势力控制</b><span>地块 / 产出</span></div>
+    <div id="rankList"></div>
+  </div>
+</aside>
+
+
+
+<div class="zoomers" id="zoomers">
+  <button type="button" id="zIn" aria-label="放大">+</button>
+  <button type="button" id="zOut" aria-label="缩小">−</button>
+  <button type="button" id="zFit" aria-label="全图"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<div class="modal-root" id="modals"></div>
+
+<script src="vendor/three.min.js"></script>
+<script src="js/globe3d.js?v=20261106cw"></script>
+<script src="js/util.js?v=20261106cw"></script>
+<script src="js/data.js?v=20261106cw"></script>
+<script src="js/avatar.js?v=20261106cw"></script>
+<script src="js/world.js?v=20261106cw"></script>
+<script src="js/economy.js?v=20261106cw"></script>
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  var on = true; // The public homepage is always the multiplayer world.
+  window.ORE_MP_CONFIG = {
+    enabled: on,
+    seed: 424242,
+    url: q.get("server") || ((location.protocol === "file:") ? "http://127.0.0.1:8091" : (location.protocol === "https:" ? "/world" : (location.protocol + "//" + location.hostname + ":8091")))
+  };
+})();
+</script>
+<script src="js/game.js?v=20261106cw"></script>
+<script src="js/ui.js?v=20261106cw"></script>
+<script src="js/audio.js?v=20261106cw"></script>
+<script src="js/i18n.extra.js?v=20261106cw"></script>
+<script src="js/i18n.extra2.js?v=20261106cw"></script>
+<script src="js/i18n.extra3.js?v=20261106cw"></script>
+<script src="js/i18n.js?v=20261106cw"></script>
+<script src="js/main.js?v=20261106cw"></script>
+<script src="js/multiplayer.js?v=20261106cw"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "chainId": 97,
+  "deployedAt": "2026-11-07T15:10:48.983Z",
+  "deployer": "0x754620D96e48B93df1A6aFF57FFA98d732EB667a",
+  "oldNft": "0x429a28cF913deD2E025F9e75589EEdD05ab2386e",
+  "nft": "0x712716b1a7a991a372d951A6873f42665918BA9a",
+  "burner": "0xc3DD4CFf1fc205974cF69b5B64D1FFc9405Bb917",
+  "totalMigrated": 10,
+  "migrationTx": "0xd600dc14c627e0215c6647b8230a7bcf6efa4fdc4aaa363443745dbb0b58d97b",
+  "nftTx": "0x13bbe330fddcba7a2b02440e2cee96ecf0ea5a7a40ff3fc157e6a50c3908725c",
+  "burnerTx": "0xd4b086d1f51ce0dbad61b240831de14269ce67790555d8ed31ce9f0d82b0efce",
+  "holders": [
+    "0x145dcA23FB271BD5c2c31808BFa91fBe596a8ac9",
+    "0x145dcA23FB271BD5c2c31808BFa91fBe596a8ac9",
+    "0x145dcA23FB271BD5c2c31808BFa91fBe596a8ac9",
+    "0x145dcA23FB271BD5c2c31808BFa91fBe596a8ac9",
+    "0x145dcA23FB271BD5c2c31808BFa91fBe596a8ac9",
+    "0x145dcA23FB271BD5c2c31808BFa91fBe596a8ac9",
+    "0x145dcA23FB271BD5c2c31808BFa91fBe596a8ac9",
+    "0x145dcA23FB271BD5c2c31808BFa91fBe596a8ac9",
+    "0x145dcA23FB271BD5c2c31808BFa91fBe596a8ac9",
+    "0x145dcA23FB271BD5c2c31808BFa91fBe596a8ac9"
+  ],
+  "ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ]
+}
