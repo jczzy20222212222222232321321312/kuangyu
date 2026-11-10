@@ -1,0 +1,25 @@
+databases:
+  - name: ore-zone-db
+    plan: free
+    databaseName: orezone
+    user: orezone
+
+services:
+  - type: web
+    name: ore-zone-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ore-zone-db
+          property: connectionString
+      - key: CLAIM_SIGNER_KEY
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
+      - key: NFT_RPC_LIST
+        value: https://bsc-testnet-rpc.publicnode.com,https://data-seed-prebsc-1-s1.binance.org:8545,https://data-seed-prebsc-2-s1.binance.org:8545,https://bsc-testnet.public.blastapi.io,https://rpc.ankr.com/bsc_testnet_chapel
