@@ -18,7 +18,7 @@ Redis 127.0.0.1:564xx
 
 ```caddyfile
 game.example.com {
-    root * /srv/ore-zone
+    root * /srv/kuangyu
     file_server
 
     handle_path /world/* {
@@ -49,7 +49,7 @@ DNS 将 `game.example.com` 指向服务器公网 IP，防火墙只开放 80/443�
 
 ```caddyfile
 :8081 {
-    root * /srv/ore-zone
+    root * /srv/kuangyu
     file_server
 
     handle_path /world/* {
@@ -152,7 +152,7 @@ location /world/ {
 ## 安全
 
 - 不要把 554xx/564xx 端口映射到公网
-- 不要把 `/tmp/ore-zone-deployer.json` 放到 Web 根目录
+- 不要把 `/tmp/kuangyu-deployer.json` 放到 Web 根目录
 - 使用 HTTPS 正式证书
 - 当前仍是 BSC 测试网
 - 市场合约地址、NFT V2 地址和 ORE 地址见 `build/`

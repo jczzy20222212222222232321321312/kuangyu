@@ -2,7 +2,7 @@
 const fs=require('fs'),path=require('path'),{ethers}=require('ethers');
 const root=path.join(__dirname,'..');
 const RPC=process.env.BSC_TESTNET_RPC||'https://bsc-testnet-rpc.publicnode.com';
-const key=process.env.PRIVATE_KEY||JSON.parse(fs.readFileSync('/tmp/ore-zone-deployer.json','utf8')).privateKey;
+const key=process.env.PRIVATE_KEY||JSON.parse(fs.readFileSync('/tmp/kuangyu-deployer.json','utf8')).privateKey;
 const ORE='0xD222B7BC58AF20a5EE2bF877A9008091Da3D00E5';
 const NFT='0x712716b1a7a991a372d951A6873f42665918BA9a';
 (async()=>{

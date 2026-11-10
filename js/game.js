@@ -1,4 +1,4 @@
-/* 矿域 ORE.ZONE — game state, war, bloodline, market and the loop */
+/* 矿域 矿域 — game state, war, bloodline, market and the loop */
 (function () {
 'use strict';
 const ORE = (window.ORE = window.ORE || {});

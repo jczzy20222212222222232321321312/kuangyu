@@ -10,7 +10,7 @@ const SUPPLY=100_000_000n*10n**18n, POOL=80_000_000n*10n**18n, VAULT=10_000_000n
  const p=new ethers.JsonRpcProvider(RPC,97,{staticNetwork:true});const w=new ethers.Wallet(key,p);console.log('signer',w.address,'balance',ethers.formatEther(await p.getBalance(w.address)));
  const dep=async(name,args)=>{const a=art(name);const f=new ethers.ContractFactory(a.abi,a.bytecode,w);const c=await f.deploy(...args);const tx=c.deploymentTransaction();await c.waitForDeployment();const addr=await c.getAddress();console.log(name,addr,tx.hash);return {c,addr,tx:tx.hash};};
  const token=await dep('OreToken',[SUPPLY]);
- const nft=await dep('OreSoldierV3',['https://ore.zone/nft/']);
+ const nft=await dep('OreSoldierV3',['https://矿域/nft/']);
  const vault=await dep('OreVault',[token.addr,w.address]);
  const pool=await dep('OreMinePool',[token.addr,w.address]);
  const burner=await dep('OreBurner',[nft.addr]);

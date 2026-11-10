@@ -1,4 +1,4 @@
-/* 矿域 ORE.ZONE — small utilities, deterministic RNG, geometry */
+/* 矿域 矿域 — small utilities, deterministic RNG, geometry */
 (function () {
 'use strict';
 const ORE = (window.ORE = window.ORE || {});

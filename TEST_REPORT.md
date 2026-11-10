@@ -1,4 +1,4 @@
-# ORE.ZONE Security / Functional Test Report
+# 矿域 Security / Functional Test Report
 
 Date: 2026-11-07
 Environment: local self-hosted PostgreSQL 18.6 + Redis + Node 24

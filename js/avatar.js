@@ -1,4 +1,4 @@
-/* 矿域 ORE.ZONE — deterministic flat-shard warrior portraits */
+/* 矿域 矿域 — deterministic flat-shard warrior portraits */
 (function () {
 'use strict';
 const ORE = (window.ORE = window.ORE || {});

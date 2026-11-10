@@ -2,7 +2,7 @@
 const fs=require('fs'),path=require('path'),{ethers}=require('ethers');
 const root=path.join(__dirname,'..');
 const RPC=process.env.BSC_TESTNET_RPC||'https://bsc-testnet-rpc.publicnode.com';
-const key=JSON.parse(fs.readFileSync('/tmp/ore-zone-deployer.json','utf8')).privateKey;
+const key=JSON.parse(fs.readFileSync('/tmp/kuangyu-deployer.json','utf8')).privateKey;
 const art=n=>JSON.parse(fs.readFileSync(path.join(root,'build',n+'.json'),'utf8'));
 (async()=>{
  const p=new ethers.JsonRpcProvider(RPC,97,{staticNetwork:true});const w=new ethers.Wallet(key,p);
@@ -10,7 +10,7 @@ const art=n=>JSON.parse(fs.readFileSync(path.join(root,'build',n+'.json'),'utf8'
  const roster=[];for(const pl of state.players||[])for(const so of pl.roster||[])if(so.nftId&&!roster.find(x=>String(x.nftId)===String(so.nftId)))roster.push(Object.assign({wallet:String(pl.id||'').replace(/^w:/,'')},so));
  console.log('migrate roster',roster.length,roster.map(x=>x.nftId+':'+x.wallet.slice(0,6)).join(','));
  const deploy=async(name,args)=>{const a=art(name);const f=new ethers.ContractFactory(a.abi,a.bytecode,w);const c=await f.deploy(...args);const tx=c.deploymentTransaction();await c.waitForDeployment();console.log(name,await c.getAddress());return {c,addr:await c.getAddress(),tx:tx.hash};};
- const nft=await deploy('OreSoldierV3',['https://ore.zone/nft/']);
+ const nft=await deploy('OreSoldierV3',['https://矿域/nft/']);
  const burner=await deploy('OreBurner',[nft.addr]);
  const market=await deploy('OreMarket',['0xD222B7BC58AF20a5EE2bF877A9008091Da3D00E5',nft.addr]);
  for(const so of roster){

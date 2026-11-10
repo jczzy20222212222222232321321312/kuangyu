@@ -1,11 +1,11 @@
-# Deploy ORE.ZONE
+# Deploy 矿域
 
 ## 1. API on Render
 
 Create a Render Blueprint from this repository. `render.yaml` defines:
 
-- `ore-zone-api` Docker web service
-- `ore-zone-db` PostgreSQL database
+- `kuangyu-api` Docker web service
+- `kuangyu-db` PostgreSQL database
 
 After the blueprint is created, set these dashboard secrets:
 
@@ -15,13 +15,13 @@ After the blueprint is created, set these dashboard secrets:
 The API URL will be:
 
 ```
-https://ore-zone-api.onrender.com
+https://kuangyu-api.onrender.com
 ```
 
 Test:
 
 ```
-https://ore-zone-api.onrender.com/health
+https://kuangyu-api.onrender.com/health
 ```
 
 ## 2. Static frontend on GitHub Pages
@@ -33,7 +33,7 @@ Enable Pages in repository Settings → Pages → Source: GitHub Actions.
 Open:
 
 ```
-https://jczzy20222212222222232321321312.github.io/ore-zone/index.html?server=https://ore-zone-api.onrender.com
+https://jczzy20222212222222232321321312.github.io/kuangyu/index.html?server=https://kuangyu-api.onrender.com
 ```
 
 The `server` query parameter points the frontend at the Render API.

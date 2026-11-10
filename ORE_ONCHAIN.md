@@ -70,7 +70,7 @@ ERC20 由 Vault 和 OreMinePool 持有；Vault 只认 EIP-712 签名。领取时
 启动：
 
 ```bash
-cd ore-zone
+cd kuangyu
 node server/claim-server.js
 # 默认 0.0.0.0:8090
 ```

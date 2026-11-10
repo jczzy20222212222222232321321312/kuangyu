@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*
- * ORE.ZONE server-authoritative shared world.
+ * 矿域 server-authoritative shared world.
  * Run: node server/world-server.js
  *
  * Owns: map ownership, faction territory, player troops/ORE, attacks,
@@ -19,7 +19,7 @@ function getVaultSigner() {
   if (!ethers) throw new Error('ethers not installed');
   let key = process.env.CLAIM_SIGNER_KEY;
   if (!key) {
-    const file = process.env.CLAIM_SIGNER_FILE || '/tmp/ore-zone-deployer.json';
+    const file = process.env.CLAIM_SIGNER_FILE || '/tmp/kuangyu-deployer.json';
     key = JSON.parse(fs.readFileSync(file, 'utf8')).privateKey;
   }
   vaultSigner = new ethers.Wallet(key);
@@ -512,7 +512,7 @@ async function chainOreBalance(address) {
   }
 }
 function loginMessage(address, nonce) {
-  return 'ORE.ZONE multiplayer login\nAddress: ' + address + '\nNonce: ' + nonce + '\nThis signature does not send a transaction.';
+  return '矿域 multiplayer login\nAddress: ' + address + '\nNonce: ' + nonce + '\nThis signature does not send a transaction.';
 }
 async function handleNonce(req, res) {
   const body = req.method === 'POST' ? await readBody(req) : Object.fromEntries(new URL(req.url, 'http://x').searchParams);
@@ -1602,7 +1602,7 @@ function soldierSvg(id, s) {
     + '<rect width="600" height="600" fill="url(#g)"/>'
     + '<circle cx="300" cy="230" r="120" fill="' + color + '" opacity="0.14"/>'
     + '<circle cx="300" cy="230" r="108" fill="none" stroke="' + color + '" stroke-width="2" opacity="0.55"/>'
-    + '<text x="300" y="205" text-anchor="middle" fill="' + color + '" font-family="monospace" font-size="22" letter-spacing="6">ORE.ZONE</text>'
+    + '<text x="300" y="205" text-anchor="middle" fill="' + color + '" font-family="monospace" font-size="22" letter-spacing="6">矿域</text>'
     + '<text x="300" y="260" text-anchor="middle" fill="#f4f1e8" font-family="serif" font-size="54" font-weight="bold">#' + id + '</text>'
     + '<text x="300" y="305" text-anchor="middle" fill="' + color + '" font-family="monospace" font-size="18" letter-spacing="4">' + escXml(String(cls).toUpperCase()) + '</text>'
     + '<g font-family="monospace" font-size="16" fill="#cfd6cd">'
@@ -1616,7 +1616,7 @@ function nftMetadata(req, id, s) {
   const base = metaBase(req);
   return {
     name: 'Ore Soldier #' + id,
-    description: 'Ore.Zone on-chain soldier. Attributes are read from the OreSoldierV3 soldiers mapping.',
+    description: '矿域 on-chain soldier. Attributes are read from the OreSoldierV3 soldiers mapping.',
     image: base + '/nft/' + id + '.svg',
     external_url: base + '/index.html',
     attributes: [
@@ -1763,7 +1763,7 @@ setInterval(() => {
 }, 5000);
 setInterval(() => { try { save(); } catch (e) {} }, 10000);
   server.listen(PORT, HOST, () => {
-    console.log('[world] ORE.ZONE world server on http://' + HOST + ':' + PORT + ' (seed ' + state.seed + ')');
+    console.log('[world] 矿域 world server on http://' + HOST + ':' + PORT + ' (seed ' + state.seed + ')');
   });
 })();
 process.on('SIGTERM', () => { save(); storage.close(); setTimeout(() => process.exit(0), 50); });

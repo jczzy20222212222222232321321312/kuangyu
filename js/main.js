@@ -1,4 +1,4 @@
-/* 矿域 ORE.ZONE — boot */
+/* 矿域 矿域 — boot */
 (function () {
 'use strict';
 const ORE = window.ORE;

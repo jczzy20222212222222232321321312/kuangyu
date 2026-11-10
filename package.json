@@ -1,8 +1,8 @@
 {
-  "name": "ore-zone-soldier-contract",
+  "name": "kuangyu-game",
   "private": true,
   "version": "1.0.0",
-  "description": "Ore Zone: BSC Testnet soldier NFTs, ORE token/vault, and signed claims",
+  "description": "矿域: BSC Testnet soldier NFTs, ORE token/vault, and signed claims",
   "scripts": {
     "compile": "node scripts/compile.js",
     "deploy:bsc-testnet": "node scripts/deploy.js",

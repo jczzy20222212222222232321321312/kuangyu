@@ -1,4 +1,4 @@
-# ORE.ZONE Shared World — server-authoritative
+# 矿域 Shared World — server-authoritative
 
 This is the server-authoritative multiplayer mode. The server owns and persists
 the map, player ORE, troops, soldier roster, attacks, battle results, breeding,

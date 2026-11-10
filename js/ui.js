@@ -1,4 +1,4 @@
-/* 矿域 ORE.ZONE — UI, panels, modals, feed */
+/* 矿域 矿域 — UI, panels, modals, feed */
 (function () {
 'use strict';
 const ORE = (window.ORE = window.ORE || {});
@@ -811,7 +811,7 @@ const UI = {
         const txt = G.exportSave();
         const ta = this.modals.querySelector('#saveText');
         if (ta) { ta.value = txt; ta.select(); }
-        U.download('ore-zone-save.json', txt);
+        U.download('kuangyu-save.json', txt);
         this.toast('存档已导出', 'good'); break;
       }
       case 'settings-copy': {

@@ -1,4 +1,4 @@
-/* Ore Zone — optional WebGL planet. Real displaced sphere + 3D trees + lighting.
+/* 矿域 — optional WebGL planet. Real displaced sphere + 3D trees + lighting.
    It sits behind the 2D canvas; the 2D canvas keeps cells, avatars and labels. */
 (function () {
   'use strict';

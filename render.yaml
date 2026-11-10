@@ -1,12 +1,12 @@
 databases:
-  - name: ore-zone-db
+  - name: kuangyu-db
     plan: free
     databaseName: orezone
     user: orezone
 
 services:
   - type: web
-    name: ore-zone-api
+    name: kuangyu-api
     runtime: docker
     plan: free
     healthCheckPath: /health
@@ -15,7 +15,7 @@ services:
         value: production
       - key: DATABASE_URL
         fromDatabase:
-          name: ore-zone-db
+          name: kuangyu-db
           property: connectionString
       - key: CLAIM_SIGNER_KEY
         sync: false

@@ -1,4 +1,4 @@
-/* 矿域 ORE.ZONE — emissions, AMM liquidity, fee routing & ledger */
+/* 矿域 矿域 — emissions, AMM liquidity, fee routing & ledger */
 (function () {
 'use strict';
 const ORE = (window.ORE = window.ORE || {});

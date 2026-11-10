@@ -1,4 +1,4 @@
-/* Ore Zone — spatial battle / march / mining audio.
+/* 矿域 — spatial battle / march / mining audio.
    Uses licensed recordings (see audio/ATTRIBUTION.md) and stereo panning.
    Source volume follows the globe projection: front + centered = loudest,
    side/back = panned and attenuated. */

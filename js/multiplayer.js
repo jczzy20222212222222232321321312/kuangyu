@@ -1,4 +1,4 @@
-/* ORE.ZONE server-authoritative shared world client.
+/* 矿域 server-authoritative shared world client.
  * The server owns ownership, troops, ORE, attacks and battle results.
  * The client sends commands and renders the server snapshot.
  */

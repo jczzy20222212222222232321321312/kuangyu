@@ -1,4 +1,4 @@
-/* 矿域 ORE.ZONE — hex war map: rings, sanctums, cradle and flag columns */
+/* 矿域 矿域 — hex war map: rings, sanctums, cradle and flag columns */
 (function () {
 'use strict';
 const ORE = (window.ORE = window.ORE || {});

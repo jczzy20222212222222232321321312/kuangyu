@@ -1,4 +1,4 @@
-# ORE.ZONE 安全审计（客户端数值 / 领取 / 矿池）
+# 矿域 安全审计（客户端数值 / 领取 / 矿池）
 
 审计时间：2026-11-04  
 范围：`index.html`、`js/*.js`、`server/claim-server.js`、`contracts/*.sol`  

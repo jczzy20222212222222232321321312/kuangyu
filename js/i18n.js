@@ -1,4 +1,4 @@
-/* ORE.ZONE UI localization.
+/* 矿域 UI localization.
    The game source strings are Chinese; this layer translates static and
    dynamically rendered DOM text plus the canvas faction/unit labels. */
 (function () {
@@ -18,7 +18,7 @@
 
   // source, English, Traditional Chinese, French, Russian, Japanese, Korean, Vietnamese, Arabic
   const ROWS = [
-    ['矿域', 'ORE.ZONE', '礦域', 'ORE.ZONE', 'ORE.ZONE', 'ORE.ZONE', 'ORE.ZONE', 'ORE.ZONE', 'ORE.ZONE'],
+    ['矿域', '矿域', '礦域', '矿域', '矿域', '矿域', '矿域', '矿域', '矿域'],
     ['矿池 --', 'Pool --', '礦池 --', 'Pool --', 'Пул --', 'プール --', '풀 --', 'Pool --', 'البركة --'],
     ['总兵', 'Troops', '總兵', 'Troupes', 'Войска', '総兵力', '총병력', 'Tổng quân', 'القوات'],
     ['总战力', 'Power', '總戰力', 'Puissance', 'Сила', '総戦力', '총전력', 'Sức mạnh', 'القوة'],
@@ -104,7 +104,7 @@
     ['南极冰海上的王国。蓝冰为城，深海为壕，守住极昼下的最后一道冰墙。', 'A kingdom on the Antarctic ice sea. Blue ice for walls, deep sea for moats, guarding the last ice wall under the midnight sun.', '南極冰海上的王國。藍冰為城，深海為壕，守住極晝下的最後一道冰牆。', 'Un royaume sur la mer de glace antarctique. Glace bleue pour murs, mer profonde pour douves.', 'Королевство на антарктическом ледяном море. Голубой лёд — стены, глубина — рвы.', '南極の氷海の王国。青い氷を城壁に、深海を堀に。', '남극 얼음 바다의 왕국. 푸른 얼음을 성벽으로, 깊은 바다를 해자로.', 'Vương quốc trên biển băng Nam Cực. Băng xanh làm thành, biển sâu làm hào.', 'مملكة على بحر الجليد القطبي. الجليد الأزرق أسوار والبحر العميق خنادق.'],
     ['巨木与藤蔓之下的森林王国。每一棵古树都是一座瞭望塔。', 'A forest kingdom beneath giant trees and vines. Every ancient tree is a watchtower.', '巨木與藤蔓之下的森林王國。每一棵古樹都是一座瞭望塔。', 'Un royaume forestier sous les arbres géants et les lianes. Chaque arbre ancien est une tour de guet.', 'Лесное королевство под гигантскими деревьями и лианами. Каждое древнее дерево — сторожевая башня.', '巨木と蔓の下の森林王国。すべての古木が望楼。', '거목과 덩굴 아래의 숲 왕국. 모든 고목이 망루입니다.', 'Vương quốc rừng dưới cây khổng lồ và dây leo. Mỗi cổ thụ là một tháp canh.', 'مملكة غابة تحت الأشجار العملاقة والكروم. كل شجرة قديمة برج مراقبة.'],
     ['金色沙海与土山之间的商队王国。风把城墙磨成沙，也把矿脉吹到地表。', 'A caravan kingdom between golden sand seas and earthen mountains. Wind grinds walls to sand and exposes ore veins.', '金色沙海與土山之間的商隊王國。風把城牆磨成沙，也把礦脈吹到地表。', 'Un royaume de caravanes entre mers de sable doré et montagnes de terre. Le vent polit les murs et révèle les filons.', 'Королевство караванов между золотыми песками и земляными горами. Ветер точит стены и обнажает руду.', '金色の砂海と土山の間の隊商王国。風が城壁を砂にし、鉱脈を露出させる。', '황금 사막과 흙산 사이의 대상 왕국. 바람이 성벽을 모래로 만들고 광맥을 드러냅니다.', 'Vương quốc thương đoàn giữa biển cát vàng và núi đất. Gió mài thành cát và lộ mỏ.', 'مملكة قوافل بين بحار الرمل الذهبي والجبال الترابية. الريح تطحن الأسوار وتكشف العروق.'],
-    ['欢迎来到矿域', 'Welcome to ORE.ZONE', '歡迎來到礦域', 'Bienvenue dans ORE.ZONE', 'Добро пожаловать в ORE.ZONE', 'ORE.ZONEへようこそ', 'ORE.ZONE에 오신 것을 환영합니다', 'Chào mừng đến ORE.ZONE', 'مرحبًا بك في ORE.ZONE'],
+    ['欢迎来到矿域', 'Welcome to 矿域', '歡迎來到礦域', 'Bienvenue dans 矿域', 'Добро пожаловать в 矿域', '矿域へようこそ', '矿域에 오신 것을 환영합니다', 'Chào mừng đến 矿域', 'مرحبًا بك في 矿域'],
     ['四个动作，理解整个经济循环。', 'Four actions to understand the whole economy.', '四個動作，理解整個經濟循環。', 'Quatre actions pour comprendre toute l\'économie.', 'Четыре действия, чтобы понять всю экономику.', '4つの動作で経済全体を理解。', '네 가지 행동으로 경제 전체를 이해하세요.', 'Bốn thao tác để hiểu toàn bộ kinh tế.', 'أربع خطوات لفهم الاقتصاد بالكامل.'],
     ['地块每分钟产出 ORE。军团不白送：连接 BSC Testnet 钱包，持有几个士兵 NFT，游戏里才有几个士兵。士兵既是战斗力，也是提取权。', 'Every tile produces ORE each minute. Armies are not free: connect a BSC Testnet wallet and hold soldier NFTs — that is how many soldiers you command. Soldiers are both combat power and withdrawal rights.', '地塊每分鐘產出 ORE。軍團不白送：連接 BSC Testnet 錢包，持有幾個士兵 NFT，遊戲裡才有幾個士兵。士兵既是戰鬥力，也是提取權。', 'Chaque parcelle produit des ORE par minute. L\'armée n\'est pas gratuite : connectez un portefeuille BSC Testnet et détenez des NFT de soldats — leur nombre détermine vos soldats. Ils sont à la fois force de combat et droit de retrait.', 'Каждый участок добывает ORE в минуту. Армия не бесплатна: подключите кошелёк BSC Testnet и держите NFT солдат — столько солдат у вас и будет. Солдаты — это и сила, и право на вывод.', '各區画は毎分OREを産出。軍団は無料ではありません。BSC Testnetウォレットを接続し、兵士NFTを保有した数だけゲーム内に兵士がいます。兵士は戦力であり、引出権でもあります。', '각 타일은 분마다 ORE를 생산합니다. 군단은 무료가 아닙니다. BSC Testnet 지갑을 연결하고 보유한 병사 NFT 수만큼 게임에 병사가 있습니다. 병사는 전투력이자 인출 권한입니다.', 'Mỗi ô đất sản xuất ORE mỗi phút. Quân đoàn không miễn phí: kết nối ví BSC Testnet và sở hữu NFT lính — bạn có bấy nhiêu lính. Lính vừa là sức chiến đấu vừa là quyền rút.', 'كل قطعة تنتج ORE كل دقيقة. الجيش ليس مجانيًا: اربط محفظة BSC Testnet واحتفظ بـ NFT الجنود — بعددها يكون جنودك. الجنود قوة قتالية وحق سحب.'],
     ['矿块·1基地', ' Tiles · 1 Base', '礦塊·1基地', ' parcelles · 1 base', ' участков · 1 база', ' 区画 · 1基地', ' 타일 · 기지 1', ' ô đất · 1 căn cứ', ' قطع · قاعدة واحدة'],
@@ -610,14 +610,14 @@
     document.documentElement.lang = current;
     document.documentElement.dir = current === 'ar' ? 'rtl' : 'ltr';
     const titles = {
-      en: 'ORE.ZONE — Three kingdoms, on-chain armies',
-      'zh-Hant': '礦域 ORE.ZONE — 三族爭礦，鏈上為兵',
-      fr: 'ORE.ZONE — Trois royaumes, armées on-chain',
-      ru: 'ORE.ZONE — Три королевства, армии в сети',
-      ja: 'ORE.ZONE — 三勢力の鉱脈争い、オンチェーン兵',
-      ko: 'ORE.ZONE — 세 세력의 광맥 쟁탈, 온체인 군대',
-      vi: 'ORE.ZONE — Ba vương quốc, quân đội trên chuỗi',
-      ar: 'ORE.ZONE — ثلاث ممالك وجيوش على السلسلة',
+      en: '矿域 — Three kingdoms, on-chain armies',
+      'zh-Hant': '礦域 矿域 — 三族爭礦，鏈上為兵',
+      fr: '矿域 — Trois royaumes, armées on-chain',
+      ru: '矿域 — Три королевства, армии в сети',
+      ja: '矿域 — 三勢力の鉱脈争い、オンチェーン兵',
+      ko: '矿域 — 세 세력의 광맥 쟁탈, 온체인 군대',
+      vi: '矿域 — Ba vương quốc, quân đội trên chuỗi',
+      ar: '矿域 — ثلاث ممالك وجيوش على السلسلة',
     };
     document.title = titles[current] || titles.en;
   }

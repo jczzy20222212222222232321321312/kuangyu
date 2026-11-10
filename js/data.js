@@ -1,4 +1,4 @@
-/* 矿域 ORE.ZONE — static world data & economy defaults */
+/* 矿域 矿域 — static world data & economy defaults */
 (function () {
 'use strict';
 const ORE = (window.ORE = window.ORE || {});

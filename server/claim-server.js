@@ -51,7 +51,7 @@ const ALLOW_UNSAFE_PAYOUTS = process.env.ALLOW_UNSAFE_PAYOUTS === '1';
 
 function loadKey() {
   if (process.env.CLAIM_SIGNER_KEY) return process.env.CLAIM_SIGNER_KEY;
-  const file = process.env.CLAIM_SIGNER_FILE || '/tmp/ore-zone-deployer.json';
+  const file = process.env.CLAIM_SIGNER_FILE || '/tmp/kuangyu-deployer.json';
   const data = JSON.parse(fs.readFileSync(file, 'utf8'));
   return data.privateKey;
 }

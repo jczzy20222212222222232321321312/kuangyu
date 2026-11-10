@@ -9,11 +9,11 @@ const path = require('path');
 const { ethers } = require('ethers');
 const root = path.join(__dirname, '..');
 const RPC = process.env.BSC_TESTNET_RPC || 'https://bsc-testnet-rpc.publicnode.com';
-const KEY = process.env.PRIVATE_KEY || JSON.parse(fs.readFileSync(process.env.DEPLOYER_FILE || '/tmp/ore-zone-deployer.json', 'utf8')).privateKey;
+const KEY = process.env.PRIVATE_KEY || JSON.parse(fs.readFileSync(process.env.DEPLOYER_FILE || '/tmp/kuangyu-deployer.json', 'utf8')).privateKey;
 const SUPPLY = 100_000_000n * 10n ** 18n;
 const POOL = 80_000_000n * 10n ** 18n;
 const VAULT = 10_000_000n * 10n ** 18n;
-const BASE_URI = process.env.BASE_URI || 'https://ore.zone/nft/';
+const BASE_URI = process.env.BASE_URI || 'https://矿域/nft/';
 const art = (name) => JSON.parse(fs.readFileSync(path.join(root, 'build', name + '.json'), 'utf8'));
 async function main() {
   const provider = new ethers.JsonRpcProvider(RPC, 97, { staticNetwork: true });
